@@ -1,4 +1,4 @@
-document.title = "Warden Demo | Audio Samples";
+document.title = "Warden Demo | Speech Samples";
 
 const sampleRows = [
   {
