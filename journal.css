@@ -92,7 +92,7 @@ a {
 }
 
 .hero-content {
-  max-width: 920px;
+  max-width: 1160px;
   padding-block: 72px 86px;
   text-align: center;
   margin-inline: auto;
@@ -118,13 +118,23 @@ p {
 h1 {
   margin-bottom: 22px;
   color: #ffffff;
-  font-size: clamp(2.5rem, 5.6vw, 5rem);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
+  font-size: clamp(2.15rem, 3.55vw, 2.95rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
 }
 
 h1 span {
   color: #d9e8ff;
+}
+
+.title-line {
+  display: block;
+}
+
+@media (min-width: 821px) {
+  .title-line {
+    white-space: nowrap;
+  }
 }
 
 .hero-copy {
@@ -471,7 +481,7 @@ footer {
   }
 
   h1 {
-    font-size: clamp(2.35rem, 14vw, 3.4rem);
+    font-size: clamp(2.2rem, 11vw, 3.1rem);
   }
 
   .hero-copy {
