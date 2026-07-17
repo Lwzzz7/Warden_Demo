@@ -115,14 +115,16 @@ p {
   margin-top: 0;
 }
 
+.paper-title,
 h1 {
   margin-bottom: 22px;
   color: #ffffff;
-  font-size: clamp(2.15rem, 3.55vw, 2.95rem);
+  font-size: clamp(2.05rem, 3.25vw, 2.8rem);
   line-height: 1.08;
   letter-spacing: -0.045em;
 }
 
+.paper-title span,
 h1 span {
   color: #d9e8ff;
 }
@@ -481,7 +483,7 @@ footer {
   }
 
   h1 {
-    font-size: clamp(2.2rem, 11vw, 3.1rem);
+    font-size: clamp(2rem, 9vw, 2.75rem);
   }
 
   .hero-copy {
