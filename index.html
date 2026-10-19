@@ -1,124 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Speech samples for Warden, comparing original neural vocoder outputs, baseline watermarked samples, and Warden watermarked samples."
-    />
-    <title>Warden — Audio Watermarking Samples</title>
-    <link rel="stylesheet" href="journal.css?v=20260717-title2" />
-    <script src="demo-table.js?v=20260717-title2" defer></script>
-  </head>
-  <body>
-    <header class="site-header" id="top">
-      <nav class="nav shell" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Warden speech samples home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>WARDEN / SAMPLES</span>
-        </a>
-        <a class="nav-link" href="#samples">Listen to samples</a>
-      </nav>
-
-      <div class="hero-content shell" id="top">
-        <h1 class="paper-title">
-          <span class="title-line">Towards Practical Generative Speech Watermarking</span>
-          <span class="title-line">via Parameter-Efficient Injection</span>
-        </h1>
-        <p class="hero-copy">
-          Side-by-side listening examples for original neural vocoder outputs,
-          baseline watermarked speech, and Warden watermarked speech.
-        </p>
-        <div class="hero-meta" aria-label="Dataset summary">
-          <div><strong>05</strong><span>speech samples</span></div>
-          <div><strong>07</strong><span>methods</span></div>
-          <div><strong>35</strong><span>speech clips</span></div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Warden: Towards Practical Generative Speech Watermarking via Parameter-Efficient Injection. Compare original and watermarked DiffWave and HiFi-GAN speech." />
+  <title>Warden · Generative Watermarking</title>
+  <link rel="stylesheet" href="./styles-minimal.css?v=20261019" />
+  <script src="./app.js?v=20261019" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header"><a class="brand" href="#top">Warden <small>Watermarked Speech demo</small></a></header>
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <div class="hero-brand"><span>Warden</span></div>
+          <h1 id="page-title">Towards Practical Generative Speech Watermarking via Parameter-Efficient Injection</h1>
         </div>
-      </div>
-      <div class="hero-orbit" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </div>
-    </header>
-
-    <main>
-      <section class="samples-section" id="samples" aria-labelledby="samples-title">
-        <div class="samples-heading shell">
-          <div>
-            <h2 id="samples-title">Method comparison</h2>
-          </div>
-          <div class="filters" role="group" aria-label="Filter speech methods">
-            <button class="filter is-active" type="button" data-filter="all">
-              All methods
-            </button>
-            <button class="filter" type="button" data-filter="original">
-              Original
-            </button>
-            <button class="filter" type="button" data-filter="warden">
-              Warden
-            </button>
-            <button class="filter" type="button" data-filter="baseline">
-              Baselines
-            </button>
-          </div>
-        </div>
-
-        <div class="sample-list shell" id="sample-list" aria-live="polite"></div>
       </section>
-
-      <section class="legend shell" aria-labelledby="legend-title">
-        <div>
-          <div class="section-index">03 / METHODS</div>
-          <h2 id="legend-title">Method key</h2>
+      <section id="samples" class="listening-section" aria-labelledby="samples-title">
+        <div class="section-heading"><p class="eyebrow">NEURAL VOCODER · SPEECH SAMPLES</p><h2 id="samples-title">Experimental examples</h2></div>
+        <div class="control-panel">
+          <div class="control-block">
+            <span class="control-label">Speech model</span>
+            <div class="segmented" role="group" aria-label="Speech model">
+              <button type="button" data-model="diffwave" aria-pressed="true"><span class="model-name">DiffWave</span><span class="model-description">Diffusion-based neural vocoder</span></button>
+              <button type="button" data-model="hifigan" aria-pressed="false"><span class="model-name">HiFi-GAN</span><span class="model-description">GAN-based neural vocoder</span></button>
+            </div>
+          </div>
+          <div class="control-block prompt-block">
+            <span class="control-label">Evaluation sample</span>
+            <div class="prompt-tabs" role="group" aria-label="Evaluation sample">
+              <button type="button" data-sample="1" aria-pressed="true">Sample 01</button>
+              <button type="button" data-sample="2" aria-pressed="false">Sample 02</button>
+              <button type="button" data-sample="3" aria-pressed="false">Sample 03</button>
+              <button type="button" data-sample="4" aria-pressed="false">Sample 04</button>
+              <button type="button" data-sample="5" aria-pressed="false">Sample 05</button>
+            </div>
+          </div>
         </div>
-        <div class="legend-grid">
-          <article>
-            <span class="legend-dot original"></span>
-            <h3>Original</h3>
-            <p>Unwatermarked speech generated by DiffWave or HiFi-GAN.</p>
-          </article>
-          <article>
-            <span class="legend-dot warden"></span>
-            <h3>Warden</h3>
-            <p>Speech protected with the proposed audio watermarking method.</p>
-          </article>
-          <article>
-            <span class="legend-dot baseline"></span>
-            <h3>Baselines</h3>
-            <p>Watermarked speech generated by RIWF, Groot, and HFGW.</p>
-          </article>
-        </div>
+        <div class="selection-banner" aria-live="polite" aria-atomic="true"><div><span class="selection-overline" id="selection-label"></span><p id="selection-title"></p></div></div>
+        <div id="audio-layout" class="audio-layout"></div>
+        <noscript><p>Enable JavaScript to switch samples. <a href="./DiffWave/DiffWave_audio1.wav">Listen to the first original DiffWave sample</a>.</p></noscript>
       </section>
     </main>
-
-    <footer>
-      <div class="shell footer-inner">
-        <p>Warden speech samples</p>
-        <a href="#top">Back to top ↑</a>
-      </div>
-    </footer>
-
-    <template id="audio-card-template">
-      <article class="audio-card">
-        <div class="card-topline">
-          <div>
-            <span class="method-type"></span>
-            <h3 class="method-name"></h3>
-          </div>
-          <a class="download-link" download aria-label="Download audio sample">
-            <span aria-hidden="true">↓</span>
-          </a>
-        </div>
-        <button class="wave-player" type="button">
-          <span class="play-icon" aria-hidden="true"></span>
-          <span class="wave-wrap">
-            <canvas class="waveform" height="68"></canvas>
-            <span class="wave-progress"></span>
-          </span>
-          <span class="time">0:00</span>
-        </button>
-        <audio preload="metadata"></audio>
-      </article>
-    </template>
-  </body>
+    <footer class="demo-footer"><span>Warden speech samples</span><a href="#top">Back to top ↑</a></footer>
+  </div>
+</body>
 </html>
